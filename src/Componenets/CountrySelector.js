@@ -9,9 +9,10 @@ export const CountrySelector=({onChange})=>{
         onChange(countryData);
     },[onChange]);
 
-    return <select className={styles.selector} onChange={handleCountryChange}>
+    return <select  defaultValue={'default'} className={styles.selector} onChange={handleCountryChange}>
+        <option value={'default'} disabled>please select a country</option>
         {countryCodes.map(country =>{
-            return <option  value={country.code}>{country.name}</option>
+            return <option key={country.code} value={country.code}>{country.name}</option>
         })}
 </select>
 }
